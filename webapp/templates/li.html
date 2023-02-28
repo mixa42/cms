@@ -1,0 +1,11 @@
+<li><a href="{{ node.get_absolute_url }}">{{ node.name }}</a>
+  {% if node.child.count %}
+    <ul>
+      {% for child in node.child %}
+        {% with node=child %}
+          {% include "li.html" %}
+        {% endwith %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+</li>

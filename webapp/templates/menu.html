@@ -1,17 +1,5 @@
-<ul class="menu">
-{% for m_item in menu_items %}
-    <li><a href="{{ m_item.url }}">{{ m_item.name }}</a>
-    
-    {% if m_item %} 
-    <ul>
-        {% while n_item in menu_items %}
-            <li>--</li>
-        {% endwhile %}
-    </ul>
-    {% endif %}
-    
-    </li>
-
-
-{% endfor %}
+<ul>
+  {% for node in menu_items %}
+    {% include "li.html" %}
+  {% endfor %}
 </ul>
