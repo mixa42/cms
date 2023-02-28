@@ -1,11 +1,14 @@
-<li><a href="{{ node.get_absolute_url }}">{{ node.name }}</a>
-  {% if node.child.count %}
+<li><a href="{{ item.get_absolute_url }}">{{ item.name }}</a>
+  {% if item.pk in arr_x %}
     <ul>
-      {% for child in node.child %}
-        {% with node=child %}
-          {% include "li.html" %}
-        {% endwith %}
+      {% for child in menu_items %}
+        {% if item.pk is child.parent_id %}
+          {% with item=child %}
+            {% include "li.html" %}
+          {% endwith %}
+        {% endif %}
       {% endfor %}
     </ul>
   {% endif %}
 </li>
+
