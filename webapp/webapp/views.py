@@ -1,5 +1,24 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
+from .models import Menu
+
+def goals_by_link(request, link):
+    #return HttpResponse(f'The timeframe is {link}')
+    active = Menu.objects.filter(url=link)
+    if len(active) is 0:
+        active = Menu.objects.filter(pk=int(link))
+        
+    return render(request, 'index.html', {'active_link':link, 'title': active[0].title})
 
 def index(request):
-    return render(request, 'index.html', {'form': 1, 'EmailVer': 1, 'agr_list': 1, 'tel': 1})
+    link = Menu.objects.filter(parent_id=None)[0].url
+    if link == None:
+        link = Menu.objects.filter(parent_id=None)[0].pk
+        active = Menu.objects.filter(pk=link)
+    else:
+        active = Menu.objects.filter(url=link)
+        
+    
+    
+    return render(request, 'index.html', {'active_link': link, 'title': active[0].title})

@@ -9,5 +9,6 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index)
+    path('', views.index),
+    path('<link>/', views.goals_by_link),
 ]

@@ -1,4 +1,11 @@
-<li><a href="{{ item.get_absolute_url }}">{{ item.name }}</a>
+{% if item.url is None %}
+  <li><a href="/{{ item.pk }}/" >{{ item.name }}</a>
+{% else %}
+  <li>
+  {% comment %} {% if active_link in item.url %} active {% endif %} {% endcomment %}
+    <a href="/{{ item.url }}/">{{ item.name }}</a>
+{% endif %}
+
   {% if item.pk in arr_x %}
     <ul>
       {% for child in menu_items %}

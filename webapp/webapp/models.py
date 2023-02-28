@@ -9,9 +9,9 @@ CHOICES_VISIBLE = [
 
 class Menu(models.Model):
     name = models.CharField('Название', max_length=100)
-    url = models.CharField('Ссылка', max_length=255)
+    url = models.CharField('Ссылка', max_length=255, blank=True, null=True,  )
     position = models.PositiveIntegerField('Позиция', default=1)
-
+    title = models.CharField('Заголовок', max_length=255, blank=True, null=True,)
     visible = models.CharField(
         max_length = 2,
         verbose_name = _('Видимость'),
