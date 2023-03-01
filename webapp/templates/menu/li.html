@@ -1,0 +1,19 @@
+{% if item.url is None %}
+  <li class="item{% if active_link in item.pk %} active{% endif %}" ><a href="/{{ item.pk }}/" >{{ item.name }}</a>
+{% else %}
+  <li class="item{% if active_link in item.url %} active{% endif %}" ><a href="/{{ item.url }}/">{{ item.name }}</a>
+{% endif %}
+
+  {% if item.pk in arr_x %}
+    <ul class="inner__menu">
+      {% for child in menu_items %}
+        {% if item.pk is child.parent_id %}
+          {% with item=child %}
+            {% include "menu/li.html" %}
+          {% endwith %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+</li>
+

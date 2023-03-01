@@ -1,3 +1,15 @@
-body {
-  color: red;
+nav {
+  display: block;
+  width: 660px;
+  margin: 0 auto 30px;
+}
+
+.menu__top {
+  list-style: none;
+  margin: 0 auto;
+}
+.menu__top a {
+  text-decoration: none;
+  font-family: "Lora", serif;
+  transition: 0.5s linear;
 }/*# sourceMappingURL=main.css.map */

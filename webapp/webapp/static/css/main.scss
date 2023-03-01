@@ -1,3 +1,17 @@
-body {
-    color: red;
+// TODO как https://html5book.ru/gorizontalnoe-menu/
+nav {
+    display: block;
+    width: 660px;
+    margin: 0 auto 30px;
+}
+
+
+.menu__top {
+    list-style: none; 
+    margin: 0 auto;
+    a {
+        text-decoration: none;
+        font-family: 'Lora', serif;
+        transition: .5s linear;
+      }
 }
