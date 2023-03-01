@@ -12,5 +12,6 @@ def show_top_menu(context):
     menu_items = tree_struct(Menu.objects.filter(visible=1))
     return {
         "menu_items": menu_items,
-        "arr_x": [x.parent_id for x in menu_items]
+        "arr_x": [x.parent_id for x in menu_items],
+        'active_link':context.dicts[3]['active_link']
     }

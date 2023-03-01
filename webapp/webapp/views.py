@@ -6,7 +6,7 @@ from .models import Menu
 def goals_by_link(request, link):
     #return HttpResponse(f'The timeframe is {link}')
     active = Menu.objects.filter(url=link)
-    if len(active) is 0:
+    if len(active) == 0:
         active = Menu.objects.filter(pk=int(link))
         
     return render(request, 'index.html', {'active_link':link, 'title': active[0].title})

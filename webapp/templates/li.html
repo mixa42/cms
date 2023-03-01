@@ -1,8 +1,7 @@
 {% if item.url is None %}
-  <li><a href="/{{ item.pk }}/" >{{ item.name }}</a>
+  <li {% if active_link in item.pk %} active {% endif %} ><a href="/{{ item.pk }}/" >{{ item.name }}</a>
 {% else %}
-  <li>
-  {% comment %} {% if active_link in item.url %} active {% endif %} {% endcomment %}
+  <li {% if active_link in item.url %} active {% endif %} >
     <a href="/{{ item.url }}/">{{ item.name }}</a>
 {% endif %}
 
